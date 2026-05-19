@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.fragment.app.Fragment;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends BaseFragment {
 
     // Интерфейс для связи с Activity
     public interface OnButtonClickListener {
@@ -52,30 +52,37 @@ public class MainFragment extends Fragment {
         buttonShow = view.findViewById(R.id.buttonShow);
         buttonClear = view.findViewById(R.id.buttonClear);
         Button buttonOpenSecond = view.findViewById(R.id.buttonOpenSecond);
+        Button buttonOpenActivity = view.findViewById(R.id.buttonOpenActivity);
 
-        // Обработчик кнопки "Показать Toast"
+        // Кнопка "Показать Toast"
         buttonShow.setOnClickListener(v -> {
             String text = editTextInput.getText().toString();
             if (text.isEmpty()) {
-                Toast.makeText(getActivity(), "Поле пустое!", Toast.LENGTH_SHORT).show();
+                showToast("Поле пустое!");
             } else {
-                Toast.makeText(getActivity(), "Вы ввели: " + text, Toast.LENGTH_SHORT).show();
+                showToast("Вы ввели: " + text);
                 textViewResult.setText("Результат: " + text);
             }
         });
 
-        // Обработчик кнопки "Очистить поле"
+        // Кнопка "Очистить поле"
         buttonClear.setOnClickListener(v -> {
             editTextInput.setText("");
             textViewResult.setText("Результат: ");
-            Toast.makeText(getActivity(), "Поле очищено", Toast.LENGTH_SHORT).show();
+            showToast("Поле очищено");
         });
 
-        // Обработчик кнопки "Открыть второй фрагмент"
+        // Кнопка "Открыть второй фрагмент"
         buttonOpenSecond.setOnClickListener(v -> {
             if (callback != null) {
                 callback.onOpenSecondFragment();
             }
+        });
+
+        // Кнопка "Открыть SecondActivity"
+        buttonOpenActivity.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), SecondActivity.class);
+            startActivity(intent);
         });
 
         return view;

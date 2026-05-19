@@ -32,17 +32,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Очистить поле"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/buttonOpenSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Открыть второй фрагмент"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/buttonOpenActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Открыть SecondActivity" />
 
     <TextView
         android:id="@+id/textViewResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Результат: "
-        android:textSize="16sp" />
-    <Button
-        android:id="@+id/buttonOpenSecond"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Открыть второй фрагмент" />
+        android:textSize="16sp"
+        android:layout_marginTop="16dp" />
+
 </LinearLayout>
