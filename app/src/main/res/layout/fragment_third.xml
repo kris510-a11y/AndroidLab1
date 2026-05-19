@@ -9,15 +9,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Это второй фрагмент"
+        android:text="Это третий фрагмент"
         android:textSize="20sp"
         android:layout_marginBottom="16dp" />
-    <Button
-        android:id="@+id/buttonOpenThird"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Открыть третий фрагмент"
-        android:layout_marginBottom="8dp" />
+
     <Button
         android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
