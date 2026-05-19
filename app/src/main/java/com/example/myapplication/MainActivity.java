@@ -8,7 +8,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainFragment.OnButtonClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +21,18 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Добавляем фрагмент в контейнер
         MainFragment mainFragment = new MainFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, mainFragment);
         transaction.commit();
+    }
+
+    @Override
+    public void onOpenSecondFragment() {
+        SecondFragment secondFragment = new SecondFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, secondFragment)
+                .addToBackStack(null)
+                .commit();
     }
 }

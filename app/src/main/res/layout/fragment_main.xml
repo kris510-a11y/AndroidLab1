@@ -40,5 +40,9 @@
         android:layout_height="wrap_content"
         android:text="Результат: "
         android:textSize="16sp" />
-
+    <Button
+        android:id="@+id/buttonOpenSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Открыть второй фрагмент" />
 </LinearLayout>
